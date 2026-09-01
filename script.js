@@ -1,26 +1,34 @@
-// Lógica de Filtragem dos Artigos na Home Page
-function filtrar(categoria) {
-    const posts = document.querySelectorAll('.card');
-    const botoes = document.querySelectorAll('.filter-btn');
+document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('.nav-link');
+  const pages = document.querySelectorAll('.page');
 
-    if (!posts.length || !botoes.length) return;
-
-    // Atualiza o estado visual do botão ativo
-    botoes.forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(categoria)) {
-            btn.classList.add('active');
-        }
+  function showPage(pageId) {
+    pages.forEach(page => {
+      page.classList.remove('active');
+      if (page.id === pageId) {
+        page.classList.add('active');
+      }
     });
 
-    // Exibe ou oculta os posts
-    posts.forEach(post => {
-        const postCategoria = post.getAttribute('data-category');
-        
-        if (categoria === 'todos' || postCategoria === categoria) {
-            post.style.display = 'flex';
-        } else {
-            post.style.display = 'none';
-        }
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('data-page') === pageId) {
+        link.classList.add('active');
+      }
     });
-}
+
+    window.scrollTo(0, 0);
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const pageTarget = link.getAttribute('data-page');
+      showPage(pageTarget);
+    });
+  });
+
+  window.navigateTo = function(pageId) {
+    showPage(pageId);
+  };
+});
