@@ -1,103 +1,134 @@
-HTML
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosso Canto | Decoração & Ambientes</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canto & Aconchego | Blog de Decoração</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1><a href="index.html">Nosso Canto</a></h1>
-        <p>Inspirações para criar um lar aconchegante, organizado e cheio de vida</p>
-    </header>
-
+  <header>
+    <div class="logo">Canto & Aconchego</div>
     <nav>
-        <button class="filter-btn active" onclick="filtrar('todos')">Todos</button>
-        <button class="filter-btn" onclick="filtrar('quartos')">Quartos</button>
-        <button class="filter-btn" onclick="filtrar('estudo')">Espaço de Estudo</button>
-        <button class="filter-btn" onclick="filtrar('plantas')">Plantas</button>
-        <button class="filter-btn" onclick="filtrar('diy')">DIY / Artesanato</button>
+      <ul>
+        <li><a href="#" class="nav-link active" data-page="home">Início</a></li>
+        <li><a href="#" class="nav-link" data-page="quartos">Quartos</a></li>
+        <li><a href="#" class="nav-link" data-page="estudo">Cantinho de Estudo</a></li>
+        <li><a href="#" class="nav-link" data-page="plantas">Plantas</a></li>
+        <li><a href="#" class="nav-link" data-page="diy">DIY</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <div class="container">
-        <main class="posts-grid" id="posts-container">
-            
-            <!-- Artigo 1 -->
-            <article class="card" data-category="quartos">
-                <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80" alt="Quarto organizado" class="card-img">
-                <div class="card-content">
-                    <span class="tag">Quartos</span>
-                    <h2 class="card-title">5 Regras para Manter o Quarto Sempre Organizado</h2>
-                    <p class="card-excerpt">Pequenos hábitos diários que evitam o acúmulo de bagunça e deixam o ambiente de descanso leve e relaxante.</p>
-                    <a href="artigo-1.html" class="btn-read">Ler artigo completo &rarr;</a>
-                </div>
-            </article>
+  <main class="container">
+    
+    <section id="home" class="page active">
+      <div class="hero">
+        <h1>Transforme seu espaço no seu lugar favorito do mundo</h1>
+        <p>Dicas práticas de organização, decoração aconchegante, plantas e projetos DIY.</p>
+      </div>
 
-            <!-- Artigo 2 -->
-            <article class="card" data-category="estudo">
-                <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=600&q=80" alt="Espaço de estudo aconchegante" class="card-img">
-                <div class="card-content">
-                    <span class="tag">Espaço de Estudo</span>
-                    <h2 class="card-title">Como Montar um Cantinho de Estudos Cozy</h2>
-                    <p class="card-excerpt">Ajuste a iluminação, escolha tons quentes e organize seus materiais para aumentar o foco e o conforto visual.</p>
-                    <a href="artigo-2.html" class="btn-read">Ler artigo completo &rarr;</a>
-                </div>
-            </article>
+      <h2>Últimas Postagens</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=500" alt="Quarto organizado">
+          <div class="card-content">
+            <span class="tag">Organização</span>
+            <h3>Como Organizar um Quarto Pequeno em 5 Passos</h3>
+            <p>Mantenha a funcionalidade e a estética sem gastar muito.</p>
+            <button onclick="navigateTo('quartos')">Ler mais</button>
+          </div>
+        </article>
 
-            <!-- Artigo 3 -->
-            <article class="card" data-category="plantas">
-                <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80" alt="Plantas de interior" class="card-img">
-                <div class="card-content">
-                    <span class="tag">Plantas</span>
-                    <h2 class="card-title">As Melhores Plantas para Cultivar Dentro de Casa</h2>
-                    <p class="card-excerpt">Descubra espécies fáceis de cuidar, como a Jiboia e o Espada-de-São-Jorge, ideais para dar vida aos cômodos.</p>
-                    <a href="artigo-3.html" class="btn-read">Ler artigo completo &rarr;</a>
-                </div>
-            </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=500" alt="Espaço de estudo cozy">
+          <div class="card-content">
+            <span class="tag">Estudo</span>
+            <h3>Montando um Cozy Study Space</h3>
+            <p>Iluminação quente, organização de cabos e elementos confortáveis.</p>
+            <button onclick="navigateTo('estudo')">Ler mais</button>
+          </div>
+        </article>
 
-            <!-- Artigo 4 -->
-            <article class="card" data-category="diy">
-                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" alt="Projeto DIY" class="card-img">
-                <div class="card-content">
-                    <span class="tag">DIY / Artesanato</span>
-                    <h2 class="card-title">Faça Você Mesmo: Suporte de Macramê para Vasos</h2>
-                    <p class="card-excerpt">Aprenda um tutorial simples e rápido para fazer ganchos artesanais e pendurar suas plantas com estilo.</p>
-                    <a href="artigo-4.html" class="btn-read">Ler artigo completo &rarr;</a>
-                </div>
-            </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=500" alt="Plantas de interior">
+          <div class="card-content">
+            <span class="tag">Plantas</span>
+            <h3>4 Plantas Fáceis de Cuidar Dentro de Casa</h3>
+            <p>Deixe o ambiente mais vivo com espécies de baixa manutenção.</p>
+            <button onclick="navigateTo('plantas')">Ler mais</button>
+          </div>
+        </article>
+      </div>
+    </section>
 
-            <!-- Artigo 5 -->
-            <article class="card" data-category="quartos">
-                <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=600&q=80" alt="Decoração minimalista" class="card-img">
-                <div class="card-content">
-                    <span class="tag">Quartos</span>
-                    <h2 class="card-title">Paleta de Cores Neutras para o Dormitório</h2>
-                    <p class="card-excerpt">Como combinar tons amadeirados, bege e off-white para transformar a sensação de espaço no quarto.</p>
-                    <a href="artigo-5.html" class="btn-read">Ler artigo completo &rarr;</a>
-                </div>
-            </article>
+    <section id="quartos" class="page">
+      <h1>Organização de Quartos</h1>
+      <p class="subtitle">Ideias para otimizar espaço e criar um refugio relaxante.</p>
+      
+      <article class="full-post">
+        <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800" alt="Quarto moderno">
+        <h2>Guia de Organização para Quartos Pequenos</h2>
+        <p>Um quarto bagunçado impacta diretamente a qualidade do sono e o bem-estar. Para manter tudo no lugar:</p>
+        <ul>
+          * **Aproveite a verticalização:** Use prateleiras e nichos até o teto.
+          * **Camas funcionais:** Camas baú ou com gavetas embutidas economizam muito espaço.
+          * **Desapego periódico:** A cada estação, revise roupas e itens que não utiliza mais.
+        </ul>
+      </article>
+    </section>
 
-            <!-- Artigo 6 -->
-            <article class="card" data-category="diy">
-                <img src="https://images.unsplash.com/photo-1520032525096-7bd04a94b5a2?auto=format&fit=crop&w=600&q=80" alt="Organizador de mesa" class="card-img">
-                <div class="card-content">
-                    <span class="tag">DIY / Artesanato</span>
-                    <h2 class="card-title">Organizador de Mesa com Materiais Reciclados</h2>
-                    <p class="card-excerpt">Transforme caixas de papelão e embalagens velhas em divisórias funcionais e bonitas para sua escrivaninha.</p>
-                    <a href="artigo-6.html" class="btn-read">Ler artigo completo &rarr;</a>
-                </div>
-            </article>
+    <section id="estudo" class="page">
+      <h1>Cozy Study Spaces</h1>
+      <p class="subtitle">Como criar um cantinho de estudos ou home office produtivo e aconchegante.</p>
 
-        </main>
-    </div>
+      <article class="full-post">
+        <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=800" alt="Mesa de estudos">
+        <h2>Elementos Essenciais para o Cantinho Ideal</h2>
+        <p>Para focar sem se cansar rapidamente, combine conforto térmico, tátil e visual:</p>
+        <ul>
+          * **Luz Amarela/Quente:** Use luminárias amareladas na mesa para criar clima acolhedor à noite.
+          * **Texturas Aconchegantes:** Um tapete macio ou uma manta na cadeira mudam a sensação do espaço.
+          * **Gerenciamento de Cabos:** Ocultar os fios da escrivaninha diminui a poluição visual.
+        </ul>
+      </article>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 Nosso Canto - Dicas de Decoração e Organização</p>
-    </footer>
+    <section id="plantas" class="page">
+      <h1>Plantas para Interiores</h1>
+      <p class="subtitle">Traga a natureza para dentro do seu lar.</p>
 
-    <script src="script.js"></script>
+      <article class="full-post">
+        <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=800" alt="Plantas na sala">
+        <h2>Melhores Espécies para Pouca Luz</h2>
+        <p>Nem todo mundo tem luz solar direta dentro do quarto ou sala. Estas opções funcionam muito bem na sombra:</p>
+        <ul>
+          * **Jiboia:** Cresce em cascata e adapta-se facilmente a diferentes iluminações.
+          * **Espada-de-São-Jorge:** Extremamente resistente e purifica o ar do ambiente.
+          * **Zamioculca:** Requer pouquíssima rega e possui folhas brilhantes perfeitas para interiores.
+        </ul>
+      </article>
+    </section>
+
+    <section id="diy" class="page">
+      <h1>Projetos DIY (Faça Você Mesmo)</h1>
+      <p class="subtitle">Projetos simples de artesanato para personalizar seu canto.</p>
+
+      <article class="full-post">
+        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800" alt="Artesanato em madeira">
+        <h2>Suporte de Plantas em Macramê Simples</h2>
+        <p>Crie um suporte suspenso para os seus vasos usando apenas cordão de algodão e tesoura.</p>
+        <p><strong>Materiais necessários:</strong> 8 tiras de cordão com 2 metros cada, 1 argola de madeira ou metal e uma tesoura.</p>
+      </article>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Canto & Aconchego - Blog de Decoração. Hospedado via GitHub Pages.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
