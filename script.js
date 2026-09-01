@@ -1,21 +1,24 @@
+// Lógica de Filtragem dos Artigos na Home Page
 function filtrar(categoria) {
     const posts = document.querySelectorAll('.card');
     const botoes = document.querySelectorAll('.filter-btn');
 
-    // Atualiza a classe ativa do botão
+    if (!posts.length || !botoes.length) return;
+
+    // Atualiza o estado visual do botão ativo
     botoes.forEach(btn => {
         btn.classList.remove('active');
-        if (btn.getAttribute('onclick').includes(categoria)) {
+        if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(categoria)) {
             btn.classList.add('active');
         }
     });
 
-    // Exibe ou oculta os cards de posts de acordo com a categoria
+    // Exibe ou oculta os posts
     posts.forEach(post => {
         const postCategoria = post.getAttribute('data-category');
         
         if (categoria === 'todos' || postCategoria === categoria) {
-            post.style.display = 'block';
+            post.style.display = 'flex';
         } else {
             post.style.display = 'none';
         }
