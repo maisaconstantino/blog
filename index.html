@@ -1,134 +1,269 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Canto & Aconchego | Blog de Decoração</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beleza Natural | Cosméticos Conscientes</title>
+    <style>
+        :root {
+            --bg-color: #fdfbf7;
+            --primary-color: #6b8e23;
+            --accent-color: #e8a598;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #f3ece1;
+            text-align: center;
+            padding: 2rem 1rem;
+            border-bottom: 2px solid #e0d7c6;
+        }
+
+        header h1 {
+            margin: 0;
+            color: var(--primary-color);
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 0 10px;
+            padding: 5px 10px;
+        }
+
+        nav button:hover {
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .grid-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background-color: #55721a;
+        }
+
+        .sobre-section {
+            margin-top: 3rem;
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .post-single {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .meta {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #333;
+            color: white;
+            margin-top: 3rem;
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">Canto & Aconchego</div>
-    <nav>
-      <ul>
-        <li><a href="#" class="nav-link active" data-page="home">Início</a></li>
-        <li><a href="#" class="nav-link" data-page="quartos">Quartos</a></li>
-        <li><a href="#" class="nav-link" data-page="estudo">Cantinho de Estudo</a></li>
-        <li><a href="#" class="nav-link" data-page="plantas">Plantas</a></li>
-        <li><a href="#" class="nav-link" data-page="diy">DIY</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <h1>Beleza Natural</h1>
+        <p>Receitas caseiras e autocuidado consciente</p>
+        <nav>
+            <button onclick="verInicio()">Início</button>
+            <button onclick="verSobre()">Sobre</button>
+        </nav>
+    </header>
 
-  <main class="container">
-    
-    <section id="home" class="page active">
-      <div class="hero">
-        <h1>Transforme seu espaço no seu lugar favorito do mundo</h1>
-        <p>Dicas práticas de organização, decoração aconchegante, plantas e projetos DIY.</p>
-      </div>
+    <main class="container">
+        <!-- PÁGINA INICIAL (LISTA DE RECEITAS) -->
+        <div id="page-inicio">
+            <section class="grid-posts">
+                <article class="card">
+                    <h3>Máscara Facial de Argila Rosa</h3>
+                    <p>Aprenda a fazer uma máscara suavizante e iluminadora usando ingredientes 100% veganos.</p>
+                    <button class="btn" onclick="verPost('argila')">Ler Receita</button>
+                </article>
 
-      <h2>Últimas Postagens</h2>
-      <div class="grid">
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=500" alt="Quarto organizado">
-          <div class="card-content">
-            <span class="tag">Organização</span>
-            <h3>Como Organizar um Quarto Pequeno em 5 Passos</h3>
-            <p>Mantenha a funcionalidade e a estética sem gastar muito.</p>
-            <button onclick="navigateTo('quartos')">Ler mais</button>
-          </div>
-        </article>
+                <article class="card">
+                    <h3>Esfoliante Corporal de Café</h3>
+                    <p>Uma receita simples para renovar a pele e atuar na circulação usando pó de café.</p>
+                    <button class="btn" onclick="verPost('cafe')">Ler Receita</button>
+                </article>
 
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=500" alt="Espaço de estudo cozy">
-          <div class="card-content">
-            <span class="tag">Estudo</span>
-            <h3>Montando um Cozy Study Space</h3>
-            <p>Iluminação quente, organização de cabos e elementos confortáveis.</p>
-            <button onclick="navigateTo('estudo')">Ler mais</button>
-          </div>
-        </article>
+                <article class="card">
+                    <h3>Sérum Capilar Nutritivo</h3>
+                    <p>Combinação perfeita de óleos vegetais para selar as pontas e dar brilho natural.</p>
+                    <button class="btn" onclick="verPost('serum')">Ler Receita</button>
+                </article>
+            </section>
 
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=500" alt="Plantas de interior">
-          <div class="card-content">
-            <span class="tag">Plantas</span>
-            <h3>4 Plantas Fáceis de Cuidar Dentro de Casa</h3>
-            <p>Deixe o ambiente mais vivo com espécies de baixa manutenção.</p>
-            <button onclick="navigateTo('plantas')">Ler mais</button>
-          </div>
-        </article>
-      </div>
-    </section>
+            <section id="sobre" class="sobre-section">
+                <h2>Sobre o Blog</h2>
+                <p>Nosso objetivo é promover o bem-estar por meio de receitas artesanais, promovendo o consumo consciente e livre de crueldade animal.</p>
+            </section>
+        </div>
 
-    <section id="quartos" class="page">
-      <h1>Organização de Quartos</h1>
-      <p class="subtitle">Ideias para otimizar espaço e criar um refugio relaxante.</p>
-      
-      <article class="full-post">
-        <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800" alt="Quarto moderno">
-        <h2>Guia de Organização para Quartos Pequenos</h2>
-        <p>Um quarto bagunçado impacta diretamente a qualidade do sono e o bem-estar. Para manter tudo no lugar:</p>
-        <ul>
-          * **Aproveite a verticalização:** Use prateleiras e nichos até o teto.
-          * **Camas funcionais:** Camas baú ou com gavetas embutidas economizam muito espaço.
-          * **Desapego periódico:** A cada estação, revise roupas e itens que não utiliza mais.
-        </ul>
-      </article>
-    </section>
+        <!-- PÁGINA DE POSTAGEM INDIVIDUAL -->
+        <div id="page-post" class="hidden">
+            <button class="btn" onclick="verInicio()">← Voltar ao Início</button>
+            <article class="post-single" style="margin-top: 1rem;">
+                <h2 id="post-title">Título do Post</h2>
+                <p class="meta">Publicado em cosméticos artesanais • 5 min de leitura</p>
+                <div id="post-content">
+                    <!-- Conteúdo dinâmico injetado via JS -->
+                </div>
+                <br>
+                <button id="likeBtn" class="btn">❤️ Curtir (<span id="likeCount">0</span>)</button>
+            </article>
+        </div>
+    </main>
 
-    <section id="estudo" class="page">
-      <h1>Cozy Study Spaces</h1>
-      <p class="subtitle">Como criar um cantinho de estudos ou home office produtivo e aconchegante.</p>
+    <footer>
+        <p>&copy; 2026 Beleza Natural - Cosméticos Veganos e Conscientes</p>
+    </footer>
 
-      <article class="full-post">
-        <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=800" alt="Mesa de estudos">
-        <h2>Elementos Essenciais para o Cantinho Ideal</h2>
-        <p>Para focar sem se cansar rapidamente, combine conforto térmico, tátil e visual:</p>
-        <ul>
-          * **Luz Amarela/Quente:** Use luminárias amareladas na mesa para criar clima acolhedor à noite.
-          * **Texturas Aconchegantes:** Um tapete macio ou uma manta na cadeira mudam a sensação do espaço.
-          * **Gerenciamento de Cabos:** Ocultar os fios da escrivaninha diminui a poluição visual.
-        </ul>
-      </article>
-    </section>
+    <script>
+        const receitas = {
+            argila: {
+                titulo: "Máscara Facial de Argila Rosa e Babosa",
+                conteudo: `
+                    <p>A argila rosa é ideal para peles sensíveis e delicadas. Ela limpa suavemente, absorve a oleosidade sem ressecar e devolve o brilho natural da pele.</p>
+                    <h3>Ingredientes</h3>
+                    <ul>
+                        <li>1 colher de sopa de argila rosa em pó</li>
+                        <li>1 colher de sopa de gel de babosa (Aloe Vera) natural</li>
+                        <li>2 gotas de óleo essencial de lavanda</li>
+                    </ul>
+                    <h3>Modo de Preparo</h3>
+                    <ol>
+                        <li>Misture a argila com a babosa até formar uma pasta.</li>
+                        <li>Aplique no rosto limpo e deixe agir por 10 minutos.</li>
+                        <li>Enxágue com água morna.</li>
+                    </ol>
+                `
+            },
+            cafe: {
+                titulo: "Esfoliante Corporal de Café e Óleo de Coco",
+                conteudo: `
+                    <p>O pó de café ajuda a estimular a circulação enquanto o óleo de coco hidrata profundamente a pele.</p>
+                    <h3>Ingredientes</h3>
+                    <ul>
+                        <li>2 colheres de pó de café</li>
+                        <li>1 colher de óleo de coco extra virgem</li>
+                    </ul>
+                    <h3>Modo de Preparo</h3>
+                    <ol>
+                        <li>Misture os ingredientes em um pote até virar uma farofa úmida.</li>
+                        <li>Massageie no corpo durante o banho em movimentos circulares.</li>
+                        <li>Enxágue bem.</li>
+                    </ol>
+                `
+            },
+            serum: {
+                titulo: "Sérum Capilar Nutritivo de Óleos Vegetais",
+                conteudo: `
+                    <p>Uma mistura simples para selar pontas duplas e controlar o frizz sem pesar nos fios.</p>
+                    <h3>Ingredientes</h3>
+                    <ul>
+                        <li>10ml de óleo de argan</li>
+                        <li>10ml de óleo de jojoba</li>
+                    </ul>
+                    <h3>Modo de Uso</h3>
+                    <ol>
+                        <li>Misture os óleos num frasco conta-gotas.</li>
+                        <li>Aplique 2 a 3 gotas nas palmas das mãos e passe nas pontas do cabelo seco ou úmido.</li>
+                    </ol>
+                `
+            }
+        };
 
-    <section id="plantas" class="page">
-      <h1>Plantas para Interiores</h1>
-      <p class="subtitle">Traga a natureza para dentro do seu lar.</p>
+        let curtidonas = 0;
 
-      <article class="full-post">
-        <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=800" alt="Plantas na sala">
-        <h2>Melhores Espécies para Pouca Luz</h2>
-        <p>Nem todo mundo tem luz solar direta dentro do quarto ou sala. Estas opções funcionam muito bem na sombra:</p>
-        <ul>
-          * **Jiboia:** Cresce em cascata e adapta-se facilmente a diferentes iluminações.
-          * **Espada-de-São-Jorge:** Extremamente resistente e purifica o ar do ambiente.
-          * **Zamioculca:** Requer pouquíssima rega e possui folhas brilhantes perfeitas para interiores.
-        </ul>
-      </article>
-    </section>
+        function verInicio() {
+            document.getElementById('page-inicio').classList.remove('hidden');
+            document.getElementById('page-post').classList.add('hidden');
+            window.scrollTo(0, 0);
+        }
 
-    <section id="diy" class="page">
-      <h1>Projetos DIY (Faça Você Mesmo)</h1>
-      <p class="subtitle">Projetos simples de artesanato para personalizar seu canto.</p>
+        function verSobre() {
+            verInicio();
+            document.getElementById('sobre').scrollIntoView({ behavior: 'smooth' });
+        }
 
-      <article class="full-post">
-        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800" alt="Artesanato em madeira">
-        <h2>Suporte de Plantas em Macramê Simples</h2>
-        <p>Crie um suporte suspenso para os seus vasos usando apenas cordão de algodão e tesoura.</p>
-        <p><strong>Materiais necessários:</strong> 8 tiras de cordão com 2 metros cada, 1 argola de madeira ou metal e uma tesoura.</p>
-      </article>
-    </section>
+        function verPost(chave) {
+            const post = receitas[chave];
+            if (post) {
+                document.getElementById('post-title').innerText = post.titulo;
+                document.getElementById('post-content').innerHTML = post.conteudo;
+                document.getElementById('page-inicio').classList.add('hidden');
+                document.getElementById('page-post').classList.remove('hidden');
+                curtidonas = 0;
+                document.getElementById('likeCount').innerText = curtidonas;
+                window.scrollTo(0, 0);
+            }
+        }
 
-  </main>
-
-  <footer>
-    <p>&copy; 2026 Canto & Aconchego - Blog de Decoração. Hospedado via GitHub Pages.</p>
-  </footer>
-
-  <script src="script.js"></script>
+        document.getElementById('likeBtn').addEventListener('click', () => {
+            curtidonas++;
+            document.getElementById('likeCount').innerText = curtidonas;
+        });
+    </script>
 </body>
 </html>
